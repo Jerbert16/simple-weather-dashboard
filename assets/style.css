@@ -30,7 +30,7 @@ aside {
   margin: 15px;
   padding: 10px;
   height: 50em;
-  border: red 2px dotted;
+  border: grey 1px dotted;
   width: 300px;
 }
 
@@ -47,15 +47,17 @@ h3 {
 input {
   font-size: 18px;
   margin-top: 10px;
-  width: 297px;
+  width: 290px;
   height: 2em;
+  padding-left: 7px;
 }
 
 .dayEl {
+  color: whitesmoke;
   padding: 10px;
   height: 170px;
   width: 120px;
-  border: green 2px solid;
+  background-color: rgb(32, 32, 57);
 }
 
 #formEl {
