@@ -52,6 +52,16 @@ input {
   padding-left: 7px;
 }
 
+button {
+  margin-top: 10px;
+  width: 100%;
+  height: 3em;
+  background-color: grey;
+  color: white;
+  font-weight: bold;
+  border: 1px;
+}
+
 .dayEl {
   color: whitesmoke;
   padding: 10px;

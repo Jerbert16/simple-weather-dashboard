@@ -26,6 +26,7 @@
 // Save former inputs as buttons > append > commit to local storage > make cickable w/event listener & event target
 const userInputEl = document.querySelector("#userInput");
 const searchBtnEl = document.querySelector("#searchBtn");
+let btnEls = document.querySelector("#formEl");
 
 const apiKey = "e741dcb38a3d668e1bd5bc73c1c15c13";
 const gpsAPI =
@@ -33,10 +34,15 @@ const gpsAPI =
 
 
 
-
 function getGpsCoord(event) {
   let userInput = userInputEl.value;
   event.preventDefault();
+
+ let cityBtn = document.createElement("button");
+ cityBtn.innerText = userInput;
+ let addCtyBtn = btnEls.append(cityBtn);
+// probably need to add eventtarget...
+
   console.log(userInput);
 
   let gpsQueryString =
