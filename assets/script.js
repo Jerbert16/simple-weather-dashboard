@@ -22,7 +22,38 @@
 // Make it look good with CSS
 // Connect API to get data w/JSON
 // Get input value
-// Display data in various fields 
+// Display data in various fields
 // Save former inputs as buttons > append > commit to local storage > make cickable w/event listener & event target
+const userInputEl = document.querySelector("#userInput");
+const searchBtnEl = document.querySelector("#searchBtn");
+
+const apiKey = "e741dcb38a3d668e1bd5bc73c1c15c13";
+const gpsAPI =
+  "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}";
 
 
+
+
+function getGpsCoord(event) {
+  let userInput = userInputEl.value;
+  event.preventDefault();
+  console.log(userInput);
+
+  let gpsQueryString =
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    userInput +
+    "&limit=1&appid=" +
+    apiKey;
+  fetch(gpsQueryString)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      for (let index = 0; index < data.length; index++) {
+        console.log(data[index].lat);
+        console.log(data[index].lon);
+      }
+    });
+}
+
+searchBtn.addEventListener("click", getGpsCoord);
