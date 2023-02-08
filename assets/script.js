@@ -27,6 +27,7 @@
 const userInputEl = document.querySelector("#userInput");
 const searchBtnEl = document.querySelector("#searchBtn");
 const currentWeatherEl = document.querySelector("#currentWthr");
+const currentDay = dayjs().format("dddd, MMM D, YYYY");
 let btnEls = document.querySelector("#formEl");
 
 const apiKey = "e741dcb38a3d668e1bd5bc73c1c15c13";
@@ -69,29 +70,14 @@ function getGpsCoord(event) {
             return response.json();
           })
           .then(function (weatherData) {
-            // let dateEl = document.createElement("h3");
-            // dateEl.setAttribute("id", "date");
-            // let theDate = document.querySelector("#date");
-
-            let tempEl = document.createElement("h4");
-            tempEl.setAttribute("id", "temp");
-            currentWeatherEl.appendChild(tempEl);
+            let theDate = document.querySelector("#date");
             let currentTemp = document.querySelector("#temp");
-
-            currentTemp.textContent = "Temp: " + weatherData.main.temp + "°F";
-
-            let windEl = document.createElement("h4");
-            windEl.setAttribute("id", "wind");
-            currentWeatherEl.appendChild(windEl);
             let wind = document.querySelector("#wind");
-
-            wind.textContent = "Wind: " + weatherData.wind.speed + "MPH";
-
-            let humidityEl = document.createElement("h4");
-            humidityEl.setAttribute("id", "humidity");
-            currentWeatherEl.appendChild(humidityEl);
             let humidity = document.querySelector("#humidity");
 
+            theDate.textContent = currentDay;
+            currentTemp.textContent = "Temp: " + weatherData.main.temp + "°F";
+            wind.textContent = "Wind: " + weatherData.wind.speed + "MPH";
             humidity.textContent = "Humidity: " + weatherData.main.humidity + "%";
           });
       }
