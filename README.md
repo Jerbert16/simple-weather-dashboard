@@ -26,6 +26,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Deployed Application
 
+https://jerbert16.github.io/simple-weather-dashboard/
 
 ## Preview
 ![Screenshot](./assets/06-server-side-apis-homework-demo.png)
