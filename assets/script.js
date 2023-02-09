@@ -28,11 +28,8 @@ const userInputEl = document.querySelector("#userInput");
 const searchBtnEl = document.querySelector("#searchBtn");
 const currentWeatherEl = document.querySelector("#currentWthr");
 const currentDay = dayjs().format("dddd, MMM D, YYYY");
-let btnEls = document.querySelector("#formEl");
-
 const apiKey = "e741dcb38a3d668e1bd5bc73c1c15c13";
-const gpsAPI =
-  "http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}";
+let btnEls = document.querySelector("#formEl");
 
 function getGpsCoord(event) {
   let userInput = userInputEl.value;
@@ -41,8 +38,6 @@ function getGpsCoord(event) {
   let cityBtn = document.createElement("button");
   cityBtn.innerText = userInput;
   let addCtyBtn = btnEls.append(cityBtn);
-
-
 
   let gpsQueryString =
     "http://api.openweathermap.org/geo/1.0/direct?q=" +
@@ -56,15 +51,18 @@ function getGpsCoord(event) {
     })
     .then(function (data) {
       for (let index = 0; index < data.length; index++) {
+        lat = data[index].lat;
+        lon = data[index].lon;
+        
         let currentWeatherUrl =
           "https://api.openweathermap.org/data/2.5/weather?lat=" +
-          data[index].lat +
+          lat +
           "&lon=" +
-          data[index].lon +
+          lon +
           "&appid=" +
           apiKey +
           "&units=imperial";
-
+          
         fetch(currentWeatherUrl)
           .then(function (response) {
             return response.json();
@@ -75,13 +73,14 @@ function getGpsCoord(event) {
             let wind = document.querySelector("#wind");
             let humidity = document.querySelector("#humidity");
 
-            theDate.textContent = currentDay;
+            theDate.textContent = userInput + ": " + currentDay;
             currentTemp.textContent = "Temp: " + weatherData.main.temp + "°F";
             wind.textContent = "Wind: " + weatherData.wind.speed + "MPH";
             humidity.textContent = "Humidity: " + weatherData.main.humidity + "%";
           });
       }
     });
+    
 }
 
 searchBtn.addEventListener("click", getGpsCoord);
