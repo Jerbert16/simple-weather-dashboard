@@ -40,7 +40,7 @@ function getGpsCoord(event) {
   let addCtyBtn = btnEls.append(cityBtn);
 
   let gpsQueryString =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     userInput +
     "&limit=1&appid=" +
     apiKey;
