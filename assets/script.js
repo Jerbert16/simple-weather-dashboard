@@ -71,12 +71,14 @@ function getGpsCoord(event) {
           .then(function (weatherData) {
             let theDate = document.querySelector("#date");
             let weatherIcon = document.querySelector("#weatherIcon");
+            let weatherDesc = document.querySelector("#weatherDesc");
             let currentTemp = document.querySelector("#temp");
             let wind = document.querySelector("#wind");
             let humidity = document.querySelector("#humidity");
 
             theDate.textContent = userInput + ": " + currentDay;
             weatherIcon.src = "http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png";
+            weatherDesc.textContent = "Conditions: " + weatherData.weather[0].description;
             currentTemp.textContent = "Temp: " + weatherData.main.temp + "°F";
             wind.textContent = "Wind: " + weatherData.wind.speed + " MPH";
             humidity.textContent = "Humidity: " + weatherData.main.humidity + "%";
