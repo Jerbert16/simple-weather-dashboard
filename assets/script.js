@@ -29,18 +29,21 @@ const searchBtnEl = document.querySelector("#searchBtn");
 const currentWeatherEl = document.querySelector("#currentWthr");
 const currentDay = dayjs().format("dddd, MMM D, YYYY");
 const apiKey = "e741dcb38a3d668e1bd5bc73c1c15c13";
-let btnEls = document.querySelector("#formEl");
+const btnEls = document.querySelector("#formEl");
 
+const addCityBtn = () => {
+  const userEntry = userInputEl.value
+  const cityBtn = document.createElement("button");
+  cityBtn.innerText = userEntry;
+  btnEls.append(cityBtn);
+};
 
 function getGpsCoord(event) {
-  let userInput = userInputEl.value;
   event.preventDefault();
+  const userInput = userInputEl.value;
+  addCityBtn();
 
-  let cityBtn = document.createElement("button");
-  cityBtn.innerText = userInput;
-  let addCtyBtn = btnEls.append(cityBtn);
-
-  let gpsQueryString =
+  const gpsQueryString =
     "https://api.openweathermap.org/geo/1.0/direct?q=" +
     userInput +
     "&limit=1&appid=" +
