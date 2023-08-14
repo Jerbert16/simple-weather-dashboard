@@ -27,9 +27,8 @@ const getGpsQuery = () => {
     userEntry +
     "&limit=1&appid=" +
     apiKey;
-  return gpsUrl = gpsQueryString;
+  return (gpsUrl = gpsQueryString);
 };
-
 
 const getWeatherUrl = (url) => {
   fetch(url)
@@ -49,7 +48,7 @@ const getWeatherUrl = (url) => {
           "&appid=" +
           apiKey +
           "&units=imperial";
-        getWeatherData(currentWeatherUrl)
+        getWeatherData(currentWeatherUrl);
       }
     });
 };
