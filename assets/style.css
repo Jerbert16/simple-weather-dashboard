@@ -6,7 +6,7 @@
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   padding: 2em;
   color: white;
@@ -22,6 +22,7 @@ header {
 main {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 aside {
@@ -29,7 +30,6 @@ aside {
   flex-wrap: wrap;
   margin: 15px;
   padding: 10px;
-  height: 50em;
   width: 300px;
 }
 
@@ -96,11 +96,12 @@ button {
 }
 
 #currentWthr {
-  margin-top: 15px;
-  padding: 10px;
+  margin: 15px;
+  padding: 5px;
+  padding-left: 20px;
   border: grey solid 1.5px;
-  width: 97%;
-  height: 30%;
+  width: 275px;
+  height: 215px;
 }
 
 #forecast {
