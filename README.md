@@ -24,6 +24,5 @@ THEN I am presented with the city name, the date, an icon representation of weat
 
 https://jerbert16.github.io/simple-weather-dashboard/
 
-## Preview
-![Screenshot](./assets/06-server-side-apis-homework-demo.png)
+
 
